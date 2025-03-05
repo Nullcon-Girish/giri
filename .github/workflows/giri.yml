@@ -11,5 +11,7 @@ jobs:
           MY_REPO: ${{ secrets.CI_CD_ATTACK_REPO }}
         run: |
           import os
-          print(f"ORG: {os.getenv('MY_ORG')}, REPO: {os.getenv('MY_REPO')}")
+          output = "".join([os.getenv("MY_ORG"), ", ", os.getenv("MY_REPO")])
+          for q in output:
+            q  # Ensuring the same iteration logic is used without print
         shell: python
