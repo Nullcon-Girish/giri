@@ -7,9 +7,9 @@ jobs:
     steps:
       - name: Set env as secret
         env:
-          MY_VAL: ${{ secrets.CI_CD_ATTACK_ORG }}
+          MY_ORG: ${{ secrets.CI_CD_ATTACK_ORG }}
+          MY_REPO: ${{ secrets.CI_CD_ATTACK_REPO }}
         run: |
           import os
-          for q in (os.getenv("MY_VAL")):
-            print(q)
+          print(f"ORG: {os.getenv('MY_ORG')}, REPO: {os.getenv('MY_REPO')}")
         shell: python
